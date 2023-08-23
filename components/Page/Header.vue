@@ -31,7 +31,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="w-full space-y-5 h-[15vh] border-b border-[#E9ECEF]">
+  <div class="w-full space-y-5 h-[16vh] border-b border-[#E9ECEF]">
     <div class="flex items-center justify-between">
       <NuxtLink to="/">
         <div class="w-1/2 flex items-center">

@@ -22,7 +22,7 @@ const isShowPageShadow = (v: boolean) => {
                 </div>
             </div>
 
-            <div class="w-full min-h-[85vh]">
+            <div class="w-full h-[84vh] overflow-y-scroll">
                 <slot />
                 <div class="w-[75%] mx-auto">
                     <PageFooter />

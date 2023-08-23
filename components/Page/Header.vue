@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 
+import {useJwtTokenStore} from '~/stores/jwt_token'
+import {useUserProfileStore} from '~/stores/user_profile'
+import UserProfile from '~/components/Card/UserProfile.vue'
+
 type Props = {
   isOpen: boolean
 }
@@ -28,6 +32,9 @@ const subPages: pageNation[] = [
 ]
 
 const route = useRoute()
+
+// jwtトークンを取得すルためにストアにアクセス
+const jwtTokenStore = useJwtTokenStore()
 </script>
 
 <template>
@@ -44,8 +51,13 @@ const route = useRoute()
         <NuxtLink to="/categories">
           <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer " width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="10" cy="10" r="7"></circle><line x1="21" y1="21" x2="15" y2="15"></line></svg>
         </NuxtLink>
-        <div @click="emits('changeModal', !props.isOpen)">
+        <div v-if="jwtTokenStore.jwtToken === ''">
+          <div @click="emits('changeModal', !props.isOpen)">
             <div class="bg-[#228BE6] text-white px-[15px] py-[2px] rounded-full text-[14px] cursor-pointer">ログイン</div>
+          </div>
+        </div>
+        <div v-else>
+          <UserProfile />
         </div>
       </div>
     </div>

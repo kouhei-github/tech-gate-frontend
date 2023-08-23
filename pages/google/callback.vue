@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import {googleLogin} from '~/models/googleLogin'
 import {useJwtTokenStore} from '~/stores/jwt_token'
+import {useUserProfileStore} from '~/stores/user_profile'
+
 
 definePageMeta({
   layout: 'dashboard',
@@ -9,11 +11,17 @@ definePageMeta({
 
 const route = useRoute()
 const router = useRouter()
+// JWTトークンを保存
 const jwtTokenStore = useJwtTokenStore()
+// ユーザー情報を保存
+const userProfileStore = useUserProfileStore()
 onMounted(async () => {
-  const jwtToken = await googleLogin(route.query)
+  const response = await googleLogin(route.query)
   // ストアにJWTトークンの保存
-  jwtTokenStore.updateToken(jwtToken.jwtToken)
+  jwtTokenStore.updateToken(response.jwtToken)
+  const user = {name: response.userName, image: response.userImage}
+  // ユーザー情報を保存
+  userProfileStore.updateUserProfile(user)
   // リダイレクト(ヒストリーに残さない)
   await router.replace( "/" )
 })

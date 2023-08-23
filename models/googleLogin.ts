@@ -11,13 +11,15 @@ export const googleOauth = async (): Promise<{Message: string}> => {
       });
 };
 
-
-export const googleLogin = async (query: LocationQuery): Promise<{jwtToken: string}> => {
+type CallbackResponse = {
+  jwtToken: string, userName: string, userImage: string
+}
+export const googleLogin = async (query: LocationQuery): Promise<CallbackResponse> => {
   const config = useRuntimeConfig();
   return axios
       .get(`${config.public.apiUrl}/google/callback`, {params: query})
       .then((response) => {
-        const result: {jwtToken: string} = response.data
+        const result: CallbackResponse = response.data
         return result;
       });
 };

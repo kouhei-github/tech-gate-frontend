@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import TopPageView from '~/components/FirstView/TopPageView.vue'
-import {Post} from "~/pages/classification/beginner.vue";
+import UserProfileTop from '~/components/Profile/UserProfileTop.vue'
 import {newArticles} from '~/models/sample'
+import {Post} from "~/pages/classification/beginner.vue";
 
 definePageMeta({
   layout: 'dashboard',
-  middleware: ['auth'],
 })
 
 const recommendImages: Post[] = [
@@ -30,39 +29,28 @@ const recommendImages: Post[] = [
     good: 26
   }
 ]
-
-const head = {
-  recommend: "おすすめの記事",
-  article: "すべての記事（33記事)"
-}
-
 const router = useRouter()
 </script>
+
 <template>
-  <div class="w-full">
-  <TopPageView />
-  <div class="w-[930px] mx-auto mb-9">
-      <div class="mb-8">
-        <TagsBasic />
-      </div>
+    <div class="w-[930px] mx-auto my-4">
+        <UserProfileTop />
 
-      <div @click="router.push('categories')" class="cursor-pointer w-full text-center border-y py-2 font-[600]">
-        すべてのカテゴリを見る
-      </div>
-
-      <div class="my-6">
-        <HeadTagSubTitle title="急上昇中の記事" sub-title="すべての記事を見る" path="/articles/all" />
-      </div>
-
-      <CardRecommend :recommend-images="recommendImages" />
-      <div class="grid grid-cols-2 space-x-4">
-        <div v-for="(recommendImage, index) in newArticles.slice(0, 8)" :key="index">
-          <CardNormal :recommend-image="recommendImage" />
+        <div class="my-6">
+            <HeadTagSubTitle title="コメント中の記事" sub-title="コメント中の記事を見る" path="/articles/all" />
         </div>
-      </div>
-      <div @click="router.push('categories')" class="cursor-pointer text-center w-full border-y py-2 font-[600]">
-        すべての記事を見る
-      </div>
+
+        <div class="grid grid-cols-2 space-x-4">
+            <div v-for="(recommendImage, index) in newArticles.slice(0, 8)" :key="index">
+                <CardNormal :recommend-image="recommendImage" />
+            </div>
+        </div>
+        <div @click="router.push('/articles/comments')" class="cursor-pointer text-center w-full border-y py-2 font-[600]">
+            コメント中の記事を見る
+        </div>
     </div>
-  </div>
 </template>
+
+<style scoped>
+
+</style>

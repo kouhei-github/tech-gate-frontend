@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 
 import {useJwtTokenStore} from '~/stores/jwt_token'
-import {useUserProfileStore} from '~/stores/user_profile'
 import UserProfile from '~/components/Card/UserProfile.vue'
 
 type Props = {

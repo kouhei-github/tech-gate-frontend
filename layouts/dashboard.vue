@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
 import Box from '~/components/Modal/Box.vue'
-import {useJwtTokenStore} from '~/stores/jwt_token'
 
 const isOpen = ref<boolean>(false)
 const isShowPageShadow = (v: boolean) => {

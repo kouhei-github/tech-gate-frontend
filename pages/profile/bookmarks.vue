@@ -29,7 +29,16 @@ const recommendImages: Post[] = [
     good: 26
   }
 ]
-const router = useRouter()
+
+const route = useRoute()
+const currentPage = ref<number>(typeof route.query["page"] === "undefined" ? 1 : Number(route.query["page"]))
+watch(() => route.query, (newValue, oldValue) => {
+    // 現在のページを更新
+    currentPage.value = typeof newValue["page"] === "undefined" ? 1 : Number(newValue["page"])
+
+    // エンドポイント叩いて記事を更新する
+})
+const articles = newArticles.concat(newArticles).concat(newArticles).concat(newArticles).concat(newArticles)
 </script>
 
 <template>
@@ -45,8 +54,8 @@ const router = useRouter()
                 <CardNormal :recommend-image="recommendImage" />
             </div>
         </div>
-        <div @click="router.push('/articles/bookmarks')" class="cursor-pointer text-center w-full border-y py-2 font-[600]">
-            ブックマーク中の記事を見る
+        <div class="flex justify-center w-full mb-7">
+            <PageNation :current-page="currentPage" :total-page="Math.ceil(articles.length / 6)" />
         </div>
     </div>
 </template>

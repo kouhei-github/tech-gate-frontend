@@ -17,7 +17,7 @@ const columns: {path: string, name: string}[] = [
             <img :src="userProfileStore.userProfile.image" alt="プロフィール" class="w-[130px] h-[130px] object-cover rounded-full" />
             <div class="flex items-center justify-between w-full">
                 <p class="text-[15px] font-[600] text-[#1F1F1F]">{{userProfileStore.userProfile.name}}</p>
-                <div class="cursor-pointer border px-5 py-[7px]">プロフィールを編集する</div>
+                <NuxtLink to="/profile" class="cursor-pointer border px-5 py-[7px]">プロフィールを編集する</NuxtLink>
             </div>
         </div>
     </div>

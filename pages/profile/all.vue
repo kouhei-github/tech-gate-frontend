@@ -29,25 +29,34 @@ const recommendImages: Post[] = [
     good: 26
   }
 ]
-const router = useRouter()
+
+const route = useRoute()
+const currentPage = ref<number>(typeof route.query["page"] === "undefined" ? 1 : Number(route.query["page"]))
+watch(() => route.query, (newValue, oldValue) => {
+  // 現在のページを更新
+  currentPage.value = typeof newValue["page"] === "undefined" ? 1 : Number(newValue["page"])
+
+  // エンドポイント叩いて記事を更新する
+})
+const articles = newArticles.concat(newArticles).concat(newArticles).concat(newArticles).concat(newArticles)
 </script>
 
 <template>
   <div class="w-[930px] mx-auto my-4">
-    <UserProfileTop />
+      <UserProfileTop />
 
-    <div class="my-6">
-        <HeadTagSubTitle title="すべての記事" sub-title="すべての記事を見る" path="/articles/all" />
-    </div>
+      <div class="my-6">
+          <HeadTagSubTitle title="すべての記事" sub-title="すべての記事を見る" path="/articles/all" />
+      </div>
 
-    <div class="grid grid-cols-2 space-x-4">
-        <div v-for="(recommendImage, index) in newArticles.slice(0, 8)" :key="index">
-            <CardNormal :recommend-image="recommendImage" />
-        </div>
-    </div>
-    <div @click="router.push('/articles/all')" class="cursor-pointer text-center w-full border-y py-2 font-[600]">
-        すべての記事を見る
-    </div>
+      <div class="grid grid-cols-2 space-x-4">
+          <div v-for="(recommendImage, index) in articles.slice(0, 8)" :key="index">
+              <CardNormal :recommend-image="recommendImage" />
+          </div>
+      </div>
+      <div class="flex justify-center w-full mb-7">
+          <PageNation :current-page="currentPage" :total-page="Math.ceil(articles.length / 6)" />
+      </div>
   </div>
 </template>
 

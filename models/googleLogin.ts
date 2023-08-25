@@ -12,7 +12,13 @@ export const googleOauth = async (): Promise<{Message: string}> => {
 };
 
 type CallbackResponse = {
-  jwtToken: string, userName: string, userImage: string
+  jwtToken: string,
+  userName: string,
+  userImage: string,
+  githubUser: string,
+  twitterUser: string,
+  selfIntroduction: string,
+  email: string
 }
 export const googleLogin = async (query: LocationQuery): Promise<CallbackResponse> => {
   const config = useRuntimeConfig();

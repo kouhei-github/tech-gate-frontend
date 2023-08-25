@@ -1,3 +1,4 @@
+
 <script lang="ts" setup>
 
 import {useJwtTokenStore} from '~/stores/jwt_token'
@@ -20,6 +21,12 @@ type pageNation = {
   path: string
 }
 
+/**
+ * Represents an array of pageNation objects.
+ * @type {pageNation[]}
+ * @property {string} name - The name of the page.
+ * @property {string} path - The path to the page.
+ */
 const subPages: pageNation[] = [
   {name: "個人開発の基本", path: "/classification/beginner"},
   {name: "アイデア", path: "/classification/idea"},

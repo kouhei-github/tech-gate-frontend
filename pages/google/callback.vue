@@ -19,7 +19,14 @@ onMounted(async () => {
   const response = await googleLogin(route.query)
   // ストアにJWTトークンの保存
   jwtTokenStore.updateToken(response.jwtToken)
-  const user = {name: response.userName, image: response.userImage}
+  const user = {
+    name: response.userName,
+    image: response.userImage,
+    email: response.email,
+    github: response.githubUser,
+    twitter: response.twitterUser,
+    introduction: response.selfIntroduction
+  }
   // ユーザー情報を保存
   userProfileStore.updateUserProfile(user)
   // リダイレクト(ヒストリーに残さない)

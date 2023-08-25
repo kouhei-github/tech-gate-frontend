@@ -1,11 +1,19 @@
 <script setup lang="ts">
 // userProfileを取得するためにストアにアクセス
 import {useUserProfileStore} from '~/stores/user_profile'
+import {useJwtTokenStore} from '~/stores/jwt_token'
 
 const userProfileStore = useUserProfileStore()
 const toggleOpen = ref<boolean>(false)
 const changeToggle = () => {
   toggleOpen.value = !toggleOpen.value
+}
+
+const jwtTokenStore = useJwtTokenStore()
+const router = useRouter()
+const logout = () => {
+  jwtTokenStore.updateToken("")
+  router.replace("/")
 }
 </script>
 
@@ -47,12 +55,12 @@ const changeToggle = () => {
                       <p>プロフィール編集</p>
                   </div>
                   </NuxtLink>
-                  <NuxtLink to="/profile/logout">
+                  <div class="cursor-pointer" @click="logout()">
                     <div class="flex items-center justify-start space-x-1 py-2 cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path><path d="M7 12h14l-3 -3m0 6l3 -3"></path></svg>
                         <p>ログアウト</p>
                     </div>
-                  </NuxtLink>
+                  </div>
               </div>
               <div class="text-[#515151] text-[14px] space-y-4 py-2">
                   <p class="text-[#8E969D] text-[12px]">Danger zone</p>

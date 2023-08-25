@@ -2,6 +2,7 @@
 import UserProfileTop from '~/components/Profile/UserProfileTop.vue'
 import {newArticles} from '~/models/sample'
 import {Post} from "~/pages/classification/beginner.vue";
+import {useJwtTokenStore} from '~/stores/jwt_token'
 
 definePageMeta({
   layout: 'dashboard',

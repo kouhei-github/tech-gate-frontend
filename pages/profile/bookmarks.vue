@@ -32,6 +32,7 @@ const recommendImages: Post[] = [
 
 const route = useRoute()
 const currentPage = ref<number>(typeof route.query["page"] === "undefined" ? 1 : Number(route.query["page"]))
+
 watch(() => route.query, (newValue, oldValue) => {
     // 現在のページを更新
     currentPage.value = typeof newValue["page"] === "undefined" ? 1 : Number(newValue["page"])

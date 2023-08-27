@@ -20,7 +20,7 @@ const logout = () => {
 <template>
     <div class="relative">
         <img @click="changeToggle()" class="w-[50px] cursor-pointer rounded-full h-[50px] object-cover" alt="プロフィル" :src="userProfileStore.userProfile.image" />
-        <div v-if="toggleOpen" class="absolute -right-[150%] bg-white w-[200px] h-[353px] border">
+        <div v-if="toggleOpen" class="absolute -right-[150%] bg-white w-[200px] h-[370px] border">
             <NuxtLink to="/profile/all">
               <div class="w-full text-[#8E969D] py-4 my-1 text-[12px] bg-[rgb(241,243,245)]">
                   <span class="ml-2 font-[500] tracking-[0.1em]">{{userProfileStore.userProfile.name}}</span>

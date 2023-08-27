@@ -60,9 +60,12 @@ const router = useRouter()
           <CardNormal :recommend-image="recommendImage" />
         </div>
       </div>
-      <div @click="router.push('categories')" class="cursor-pointer text-center w-full border-y py-2 font-[600]">
-        すべての記事を見る
+      <div @click="router.push('/articles/all')" class="cursor-pointer group text-center w-full border-y py-2 font-[600]">
+          <NuxtLink to="/articles/all">
+              <span class="text-[#3D91DC] group-hover:underline text-[14px]">すべての記事を見る</span>
+          </NuxtLink>
       </div>
+
     </div>
   </div>
 </template>

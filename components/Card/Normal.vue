@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import {Post} from '~/pages/classification/beginner.vue'
+
+import {Post} from '~/models/article'
 
 const props = defineProps<{recommendImage: Post}>();
-const recommendImage = props.recommendImage
+const recommendImage = computed(() => props.recommendImage)
 const mark = () => {
     console.log("mark")
 }
@@ -22,7 +23,7 @@ const moveToOtherSite = (page: string) => {
 }
 
 const moveTo = (page: string) => {
-    router.push(page)
+    router.push(`/categories/${page}`)
 }
 
 </script>
@@ -31,9 +32,9 @@ const moveTo = (page: string) => {
   <div class="flex items-start h-[180px] w-full">
     <div @click="moveToOtherSite(recommendImage.url)" class="cursor-pointer hover:bg-[#F2F2F2] w-[450px] mx-auto p-[15px]">
       <div class="space-x-2 my-1 text-[#B6BBC1] font-[700] text-[12px] flex items-center " >
-        <span v-for="(tag, idx) in recommendImage.tags" :key="idx" @click.stop="moveTo(tag.url)" class="hover:underline" :to="tag.url">#{{tag.name}}</span>
+        <span v-for="(tag, idx) in recommendImage.tags" :key="idx" @click.stop="moveTo(tag.name)" class="hover:underline" >#{{tag.name}}</span>
       </div>
-      <div class="flex items-start">
+      <div class="flex items-start justify-between">
         <h3 class="text-sm font-bold text-black hover:underline hover:underline-offset-1 hover:decoration-black">
             {{ recommendImage.title }}
         </h3>
@@ -48,7 +49,7 @@ const moveTo = (page: string) => {
         </div>
 
         <div class="flex items-center justify-center space-x-2 z-20" @click.stop="mark()">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#B6BBC0] hover:bg-white" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 4h6a2 2 0 0 1 2 2v14l-5 -3l-5 3v-14a2 2 0 0 1 2 -2"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#B6BBC0] hover:bg-white" :class="{'text-[#3595E8]': recommendImage.book_marked}" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 4h6a2 2 0 0 1 2 2v14l-5 -3l-5 3v-14a2 2 0 0 1 2 -2"></path></svg>
 
           <div class="flex items-center justify-center" @click.stop="comment()">
             <svg class="w-5 h-5 text-[#B6BBC0] hover:bg-white" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1"></path></svg>

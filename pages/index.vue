@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import TopPageView from '~/components/FirstView/TopPageView.vue'
-import {Post} from "~/pages/classification/beginner.vue";
-import {newArticles} from '~/models/sample'
+import {getLatestArticle, Post} from '~/models/article'
 
 definePageMeta({
   layout: 'dashboard',
@@ -17,7 +16,8 @@ const recommendImages: Post[] = [
     date: "3年以上前",
     site: {image: "https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png", name: "qiita.com"},
     comment: 0,
-    good: 3
+    good: 3,
+    book_marked: true
   },
   {
     tags: [{name: "React", url: "/search/?kwd=react"}, {name: "JavaScript", url: "/search/?kwd=javascript"}, {name: "Nextjs", url: "/search/?kwd=nextjs"}],
@@ -27,14 +27,15 @@ const recommendImages: Post[] = [
     date: "4ヶ月前",
     site: {image: "https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png", name: "qiita.com"},
     comment: 1,
-    good: 26
+    good: 26,
+    book_marked: false
   }
 ]
 
-const head = {
-  recommend: "おすすめの記事",
-  article: "すべての記事（33記事)"
-}
+const newArticles = ref<Post[]>([])
+onMounted(async () => {
+  newArticles.value = await getLatestArticle({page: 1})
+})
 
 const router = useRouter()
 </script>

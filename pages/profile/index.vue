@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import UserProfileTop from '~/components/Profile/UserProfileTop.vue'
-import {newArticles} from '~/models/sample'
-import {Post} from "~/pages/classification/beginner.vue";
 import {useUserProfileStore} from "~/stores/user_profile";
 import {UserPayload, userUpdateRequest} from '~/models/user'
 import {useJwtTokenStore} from '~/stores/jwt_token'

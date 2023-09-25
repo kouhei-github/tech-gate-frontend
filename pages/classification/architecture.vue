@@ -1,31 +1,13 @@
 <script setup lang="ts">
-import TopPageView from '~/components/FirstView/TopPageView.vue'
 import Normal from "~/components/Card/Normal.vue";
 import {recommendRanker, recommendNotRanker, newArticles} from "~/models/sample";
 import H1 from "~/components/HeadTag/H1.vue";
-import BigginerTopView from "~/components/FirstView/BigginerTopView.vue";
-import IdeaTopView from '~/components/FirstView/IdeaTopView.vue'
 import ArchitectureTopView from '~/components/FirstView/ArchitectureTopView.vue'
+import {Post} from '~/models/article'
 
 definePageMeta({
   layout: 'dashboard',
 })
-
-type path = {
-  name: string
-  url: string
-}
-
-export type Post = {
-  image: string
-  url: string
-  title: string
-  tags: path[]
-  date: string
-  site: {image: string, name: string}
-  comment: number
-  good: number
-}
 
 const technicalBlogs = reactive<{current: string, articles: Post[]}>({
   current: "新着",

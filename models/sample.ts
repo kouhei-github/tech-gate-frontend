@@ -8,7 +8,8 @@ export const recommendRanker = [
     date: '3年以上前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 0,
-    good: 3
+    good: 3,
+    book_marked: false
   },
   {
     tags: [
@@ -23,7 +24,9 @@ export const recommendRanker = [
     date: '4ヶ月前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 1,
-    good: 26
+    good: 26,
+    book_marked: true
+
   }
 ]
 
@@ -37,7 +40,8 @@ export const recommendNotRanker = [
     date: '3年以上前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 0,
-    good: 3
+    good: 3,
+    book_marked: false
   },
    {
     tags: [{ name: 'その他', url: '/search/?kwd=other' }],
@@ -48,7 +52,8 @@ export const recommendNotRanker = [
     date: '3年以上前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 0,
-    good: 3
+    good: 3,
+     book_marked: true
   },
   {
     tags: [
@@ -63,7 +68,8 @@ export const recommendNotRanker = [
     date: '4ヶ月前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 1,
-    good: 26
+    good: 26,
+    book_marked: false
   },
   {
     tags: [{ name: 'その他', url: '/search/?kwd=other' }],
@@ -74,7 +80,8 @@ export const recommendNotRanker = [
     date: '3年以上前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 0,
-    good: 3
+    good: 3,
+    book_marked: false
   },
   {
     tags: [
@@ -89,7 +96,8 @@ export const recommendNotRanker = [
     date: '4ヶ月前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 1,
-    good: 26
+    good: 26,
+    book_marked: false
   }
 ]
 
@@ -103,7 +111,8 @@ export const newArticles = [
     date: '2023-08-24',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/logo-only.png', name: 'zenn.dev' },
     comment: 0,
-    good: 10
+    good: 10,
+    book_marked: false
   },
   {
     tags: [
@@ -118,7 +127,8 @@ export const newArticles = [
     date: '4ヶ月前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 1,
-    good: 26
+    good: 26,
+    book_marked: false
   },
   {
     tags: [{ name: 'その他', url: '/search/?kwd=other' }],
@@ -129,7 +139,8 @@ export const newArticles = [
     date: '3年以上前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 0,
-    good: 3
+    good: 3,
+    book_marked: true
   },
   {
     tags: [
@@ -144,7 +155,8 @@ export const newArticles = [
     date: '4ヶ月前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 1,
-    good: 26
+    good: 26,
+    book_marked: false
   },
   {
     tags: [{ name: 'その他', url: '/search/?kwd=other' }],
@@ -155,7 +167,8 @@ export const newArticles = [
     date: '3年以上前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 0,
-    good: 3
+    good: 3,
+    book_marked: false
   },
   {
     tags: [
@@ -170,7 +183,8 @@ export const newArticles = [
     date: '4ヶ月前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 1,
-    good: 26
+    good: 26,
+    book_marked: false
   },
   {
     tags: [{ name: 'その他', url: '/search/?kwd=other' }],
@@ -181,7 +195,8 @@ export const newArticles = [
     date: '3年以上前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 0,
-    good: 3
+    good: 3,
+    book_marked: false
   },
   {
     tags: [
@@ -196,7 +211,8 @@ export const newArticles = [
     date: '4ヶ月前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 1,
-    good: 26
+    good: 26,
+    book_marked: false
   },
   {
     tags: [{ name: 'その他', url: '/search/?kwd=other' }],
@@ -207,7 +223,8 @@ export const newArticles = [
     date: '3年以上前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 0,
-    good: 3
+    good: 3,
+    book_marked: false
   },
   {
     tags: [
@@ -222,6 +239,7 @@ export const newArticles = [
     date: '4ヶ月前',
     site: { image: 'https://youliangdao.s3.ap-northeast-1.amazonaws.com/favicon.png', name: 'qiita.com' },
     comment: 1,
-    good: 26
+    good: 26,
+    book_marked: false
   }
 ]

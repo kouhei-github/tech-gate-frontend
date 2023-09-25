@@ -6,7 +6,7 @@ definePageMeta({
 })
 
 const search = ref<string>("")
-const serachTags = computed(() => {
+const searchTags = computed(() => {
   const result: {img: string, name: string}[] = []
   tags.map((tag) => {
     if(tag.name.toUpperCase().includes(search.value.toUpperCase())) result.push(tag)
@@ -29,7 +29,7 @@ const serachTags = computed(() => {
       </NuxtLink>
     </div>
     <div class="grid grid-cols-6 gap-6 my-8" v-else>
-      <NuxtLink v-for="(tag, index) in serachTags" :key="index" class="hover:scale-125 hover:shadow-lg hover:shadow-gray-200 ease-out duration-300 flex flex-col items-center justify-center" :to="`/categories/${tag.name}/`">
+      <NuxtLink v-for="(tag, index) in searchTags" :key="index" class="hover:scale-125 hover:shadow-lg hover:shadow-gray-200 ease-out duration-300 flex flex-col items-center justify-center" :to="`/categories/${tag.name}/`">
         <img :alt="tag.name" :src="tag.img" class="w-[45px] mx-auto h-[45px]" />
         <p class="text-[12px]">{{tag.name}}</p>
       </NuxtLink>

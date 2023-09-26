@@ -34,7 +34,7 @@ watch(() => route.query, (newValue, oldValue) => {
 
 const articles = ref<Post[]>([])
 onMounted(async () => {
-  articles.value = await getLatestArticle({page: 1})
+  articles.value = []
 })
 </script>
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import Normal from "~/components/Card/Normal.vue";
-import {recommendRanker, recommendNotRanker, newArticles} from "~/models/sample";
+import {newArticles} from "~/models/sample";
 import H1 from "~/components/HeadTag/H1.vue";
 import BackendTopView from '~/components/FirstView/BackendTopView.vue'
-import {Post} from '~/models/article'
+import {getLatestArticle, Post} from '~/models/article'
 
 definePageMeta({
   layout: 'dashboard',
@@ -11,11 +11,14 @@ definePageMeta({
 
 const technicalBlogs = reactive<{current: string, articles: Post[]}>({
   current: "新着",
-  articles: newArticles
+  articles: []
 })
 
-const recommendImages: Post[] = recommendRanker
-const recommendsPostSmalls: Post[] = recommendNotRanker
+onMounted(async () => {
+  technicalBlogs.articles = await getLatestArticle({page: 6})
+})
+
+
 
 const head = {
   recommend: "おすすめの記事",
@@ -26,18 +29,17 @@ const switchArticle = (displayType: string) => {
   switch (displayType) {
     case "人気":
       technicalBlogs.current = displayType
-      technicalBlogs.articles = newArticles.filter((article) => article.title.indexOf("新規") !== -1)
+      technicalBlogs.articles = technicalBlogs.articles.reverse()
       return
     case "新着":
       technicalBlogs.current = displayType
-      technicalBlogs.articles = newArticles
+      technicalBlogs.articles = technicalBlogs.articles.reverse()
       return
     default:
       technicalBlogs.current = displayType
-      technicalBlogs.articles = newArticles
+      technicalBlogs.articles = technicalBlogs.articles.reverse()
   }
 }
-
 // 残りの記事数
 let count = 0
 const limited = ref(newArticles.length)
@@ -63,10 +65,10 @@ const addPost = () => {
     <div class="w-[75%] mx-auto">
       <H1 :text="head.recommend" />
       <div class=" w-[930px] mx-auto">
-        <CardRecommend :recommend-images="recommendImages" />
+        <CardRecommend :recommend-images="technicalBlogs.articles.slice(-2)" />
 
         <div class="grid grid-cols-2 ">
-          <div v-for="(recommendImage, index) in recommendsPostSmalls" :key="index">
+          <div v-for="(recommendImage, index) in technicalBlogs.articles.slice(-5)" :key="index">
             <Normal :recommend-image="recommendImage" />
           </div>
         </div>

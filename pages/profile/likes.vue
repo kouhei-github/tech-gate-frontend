@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import UserProfileTop from '~/components/Profile/UserProfileTop.vue'
 
-import {getLatestArticle, Post} from '~/models/article'
+import {getLatestArticle, getUserBookMarked, getUserLiked, Post} from '~/models/article'
 
 definePageMeta({
   layout: 'dashboard',
@@ -10,16 +10,19 @@ definePageMeta({
 
 const route = useRoute()
 const currentPage = ref<number>(typeof route.query["page"] === "undefined" ? 1 : Number(route.query["page"]))
-watch(() => route.query, (newValue, oldValue) => {
+watch(() => route.query, async (newValue, oldValue) => {
     // 現在のページを更新
     currentPage.value = typeof newValue["page"] === "undefined" ? 1 : Number(newValue["page"])
 
     // エンドポイント叩いて記事を更新する
+  articles.value = await getUserLiked({page: currentPage.value})
+
 })
 
 const articles = ref<Post[]>([])
 onMounted(async () => {
-  articles.value = await getLatestArticle({page: 1})
+  articles.value = await getUserLiked({page: currentPage.value})
+
 })
 </script>
 

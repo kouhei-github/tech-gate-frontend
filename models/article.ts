@@ -18,7 +18,6 @@ export type Post = {
   good: number
   book_marked: boolean
   good_num: number
-  book_marked_num: number
   comment_num: number
   now_bookmarked: boolean
   now_liked: boolean

@@ -17,9 +17,11 @@ export type Post = {
   comment: number
   good: number
   book_marked: boolean
-  good_num: number,
-  book_marked_num: number,
+  good_num: number
+  book_marked_num: number
   comment_num: number
+  now_bookmarked: boolean
+  now_liked: boolean
 }
 export const getLatestArticle = async (query: {page: number}): Promise<Post[]> => {
   const config = useRuntimeConfig();

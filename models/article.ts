@@ -23,23 +23,29 @@ export type Post = {
 }
 export const getLatestArticle = async (query: {page: number}): Promise<Post[]> => {
   const config = useRuntimeConfig();
-  return axios
-      .get(`${config.public.apiUrl}/article/latest`, {params: query})
-      .then((response) => {
-        const result: Post[] = response.data
-        return result;
-      });
+  const jwtTokenStore = useJwtTokenStore()
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${jwtTokenStore.jwtToken}`,
+  };
+  const res = await fetch(
+      `${config.public.apiUrl}/article/latest?page=${query.page}`,
+      { method: "GET", headers: headers}
+  )
+  const data: Post[] = await res.json()
+  return data
 };
 
 export const searchArticleByTagName = async (query: {slug: string, page: number}): Promise<{data: Post[], search_tag_url: string, related_tags: {name: string, image: string}[]}> => {
   const config = useRuntimeConfig();
+  const jwtTokenStore = useJwtTokenStore()
   const headers = {
-    "method": "GET",
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${jwtTokenStore.jwtToken}`,
   };
   const res = await fetch(
-    `${config.public.apiUrl}/article?tag=${query.slug}&page=${query.page}`,
-    headers
+      `${config.public.apiUrl}/article?tag=${query.slug}&page=${query.page}`,
+      { method: "GET", headers: headers}
   )
   const data: {data: Post[], search_tag_url: string, related_tags: {name: string, image: string}[]} = await res.json()
   return data

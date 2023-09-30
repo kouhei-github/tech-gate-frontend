@@ -6,7 +6,7 @@ type pageNation = {
 }
 
 const subPages: pageNation[] = [
-  {name: "TechGateについて", path: "/about"},
+  {name: "TeckLinkerについて", path: "/about"},
   {name: "プライバシーポリシー", path: "/privacy"},
   {name: "利用規約", path: "/terms"},
 ]
@@ -23,7 +23,7 @@ const route = useRoute()
     <div class="w-full flex items-center justify-between">
       <div class="w-1/2 flex items-center">
         <img alt="ロゴ" src="/images/download.webp" class="w-[180px] h-[70px]" />
-        <p class="tracking-[0.5em] text-lg ml-5">TechGate</p>
+        <p class="tracking-[0.5em] text-lg ml-5">TeckLinker</p>
       </div>
       <div class="flex w-1/2 justify-end">
         <NuxtLink

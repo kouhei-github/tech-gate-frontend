@@ -17,9 +17,9 @@ const emits = defineEmits<Emits>();
     <div class="w-10/12 mx-auto">
       <div class="flex items-center justify-around w-full">
         <img alt="ロゴ" class="w-[140px] h-[140px]" src="/images/download.webp">
-        <p class="tracking-[0.3em]">TechGate</p>
+        <p class="tracking-[0.3em]">TeckLinker</p>
       </div>
-      <p class="text-[#899199] text-[14px]">TechGateは個人開発者のための技術記事データベースです。 目的の記事を見つけたらいいねやストックをしましょう</p>
+      <p class="text-[#899199] text-[14px]">TeckLinkerは個人開発者のための技術記事データベースです。 目的の記事を見つけたらいいねやストックをしましょう</p>
       <Google />
       <div class="text-[#899199] text-[14px] text-center">
         <span class="text-[#3D91DC] hover:underline hover:underline-offset-2">利用規約</span>、<span class="text-[#3D91DC]">プライバシーポリシー</span>に同意したうえでログインしてください。

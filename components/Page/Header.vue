@@ -49,7 +49,7 @@ const jwtTokenStore = useJwtTokenStore()
       <NuxtLink to="/">
         <div class="w-1/2 flex items-center">
           <img alt="ロゴ" src="/images/download.webp" class="w-[190px] h-[80px]" />
-          <p class="tracking-[0.5em] text-lg ml-5">TechGate</p>
+          <p class="tracking-[0.5em] text-lg ml-5">TeckLinker</p>
         </div>
       </NuxtLink>
 

@@ -6,6 +6,13 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
   ],
+  nitro: {
+    baseURL: "",
+    prerender: {
+      crawlLinks: true,
+      failOnError: false,
+    },
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

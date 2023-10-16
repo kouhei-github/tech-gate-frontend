@@ -8,7 +8,7 @@
     <div class="absolute top-[26%] left-[26%] text-center text-white w-1/2 mx-auto">
       <h2 class="text-[32px]"><span class="text-[#4DABF7]">"アイデア"</span>に関する記事</h2>
       <div class="text-[16px] leading-8">
-        <p>新しいアイディアが必要？この記事で、個人開発のためのユニークな提案を発見しましょう。。</p>
+        <p>新しいアイディアが必要？この記事で、個人開発のためのユニークな提案を発見しましょう。</p>
         <p>個人開発向けの斬新な提案を一覧でご紹介しています。</p>
       </div>
       <div class="my-5">

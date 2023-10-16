@@ -9,8 +9,8 @@
     <div class="absolute top-[31%] left-[26%] text-center text-white w-1/2 mx-auto">
       <h2 class="text-[32px]"><span class="text-[#4DABF7]">"リリース・運用"</span>に関する記事</h2>
       <div class="text-[16px] leading-8">
-        <p>リリースや運用に困ったらこちらの記事をチェックしてみましょう。</p>
-        <p>アプリを実際にリリースし、運用していく上での注意点などがまとまっています。</p>
+        <p>アプリのリリースや運用で悩む方へ、こちらの記事をチェックしてみましょう。</p>
+        <p>アプリのリリースとその後の運営に関する実践的なヒントやガイドラインなどがまとまっています。</p>
       </div>
     </div>
   </div>

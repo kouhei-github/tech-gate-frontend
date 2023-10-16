@@ -11,8 +11,8 @@ const tags = ["UI", "デザイン"]
     <div class="absolute top-[25%] left-[26%] text-center text-white w-1/2 mx-auto">
       <h2 class="text-[32px]"><span class="text-[#4DABF7]">"デザイン"</span>に関する記事</h2>
       <div class="text-[16px] leading-8">
-        <p>アプリのデザインやレイアウトにお困りの人はこちらの記事をチェックしましょう。</p>
-        <p> 個人開発に役立つデザインサイトやツールがまとまっています。</p>
+        <p>デザインやレイアウトに迷ったら、こちらの記事が解決の糸口となるでしょう。</p>
+        <p> 個人開発に役立つデザインツールやサイトがまとまっています。</p>
       </div>
       <div class="my-5 flex items-center justify-center space-x-3">
         <NuxtLink v-for="(tag, index) in tags" :key="index" class="w-max" :to="`/categories/${tag}/`">

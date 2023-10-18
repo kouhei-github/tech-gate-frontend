@@ -11,7 +11,7 @@ const isShowPageShadow = (v: boolean) => {
 <template>
     <div class="">
         <div v-if="isOpen" class="bg-black z-40 opacity-60 h-full w-full absolute top-0 left-0" />
-        <div v-if="isOpen" class="absolute z-50 bottom-[30%] inset-x-[40%]">
+        <div v-if="isOpen" class="absolute z-50 bottom-[20%] inset-x-[30%]">
             <Box @change-modal="isShowPageShadow" />
         </div>
         <div>

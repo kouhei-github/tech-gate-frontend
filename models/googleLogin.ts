@@ -11,7 +11,7 @@ export const googleOauth = async (): Promise<{Message: string}> => {
       });
 };
 
-type CallbackResponse = {
+export type CallbackResponse = {
   jwtToken: string,
   userName: string,
   userImage: string,

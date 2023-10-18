@@ -5,7 +5,11 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
+    '@nuxtjs/google-adsense',
   ],
+  googleAdsense: {
+    id: 'ca-pub-3519272467638604'
+  },
   nitro: {
     baseURL: "",
     prerender: {

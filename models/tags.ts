@@ -1,3 +1,22 @@
+export type TagType = {
+  name: string
+  url: string
+}
+
+export const getAllTags = async (): Promise<TagType[]> => {
+  const config = useRuntimeConfig();
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  const res = await fetch(
+      `${config.public.apiUrl}/tag`,
+      { method: "GET", headers: headers}
+  )
+  const data: TagType[] = await res.json()
+  return data
+};
+
+
 export const tags = [
     {
         "img": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/0ee2c162b0573701a6baf468f4d30549f8d03e9b/medium.jpg?1660803670",

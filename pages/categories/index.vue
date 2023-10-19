@@ -1,14 +1,23 @@
 <script setup lang="ts">
-import {tags} from '~/models/tags'
+import {getAllTags, TagType} from '~/models/tags'
 
 definePageMeta({
   layout: 'dashboard',
 })
 
+const tags = ref<TagType[]>([{}] as TagType[])
+
+onMounted(async () => {
+  const response = await getAllTags()
+  tags.value = response
+  console.log(tags.value)
+})
+
+
 const search = ref<string>("")
 const searchTags = computed(() => {
-  const result: {img: string, name: string}[] = []
-  tags.map((tag) => {
+  const result: {url: string, name: string}[] = []
+  tags.value.map((tag) => {
     if(tag.name.toUpperCase().includes(search.value.toUpperCase())) result.push(tag)
   })
   return result
@@ -24,13 +33,13 @@ const searchTags = computed(() => {
 
     <div class="grid grid-cols-6 gap-6 my-8" v-if="search === ''">
       <NuxtLink v-for="(tag, index) in tags" :key="index" class="hover:scale-125 hover:shadow-lg hover:shadow-gray-200 ease-out duration-300 flex flex-col items-center justify-center" :to="`/categories/${tag.name}/`">
-        <img :alt="tag.name" :src="tag.img" class="w-[45px] mx-auto h-[45px]" />
+        <img  :alt="tag.name" :src="tag.url" class="w-[45px] mx-auto h-[45px]" />
         <p class="text-[12px]">{{tag.name}}</p>
       </NuxtLink>
     </div>
     <div class="grid grid-cols-6 gap-6 my-8" v-else>
       <NuxtLink v-for="(tag, index) in searchTags" :key="index" class="hover:scale-125 hover:shadow-lg hover:shadow-gray-200 ease-out duration-300 flex flex-col items-center justify-center" :to="`/categories/${tag.name}/`">
-        <img :alt="tag.name" :src="tag.img" class="w-[45px] mx-auto h-[45px]" />
+        <img :alt="tag.name" :src="tag.url" class="w-[45px] mx-auto h-[45px]" />
         <p class="text-[12px]">{{tag.name}}</p>
       </NuxtLink>
     </div>

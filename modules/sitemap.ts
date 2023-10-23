@@ -57,7 +57,10 @@ export default defineNuxtModule({
       nitro.hooks.hook('close', async () => {
         const sitemap = await generateSitemap(paths)
         createSitemapFile(sitemap, filePath)
+        console.log('----------------------------------')
         console.log('sitemap.xml created')
+        console.log('----------------------------------')
+
       })
     })
   },

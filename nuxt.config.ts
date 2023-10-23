@@ -6,11 +6,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/google-adsense',
-    '~/modules/sitemap'
+    '~/modules/sitemap',
   ],
-  sitemap: {
-    hostname: 'https://tecklinker.com',
-  },
   googleAdsense: {
     id: 'ca-pub-3519272467638604'
   },

@@ -21,6 +21,7 @@
     "@nuxtjs/google-adsense": "^3.0.0",
     "@pinia/nuxt": "^0.4.11",
     "axios": "^1.5.1",
-    "pinia": "^2.1.6"
+    "pinia": "^2.1.6",
+    "sitemap": "^7.1.1"
   }
 }

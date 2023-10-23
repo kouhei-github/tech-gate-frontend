@@ -25,11 +25,12 @@ export default defineNuxtModule({
     const nuxt = useNuxt()
     nuxt.hook('nitro:init', nitro => {
       nitro.hooks.hook('close', async () => {
-        const tags = await getAllTags()
+
         const routes = nitro._prerenderedRoutes
             ?.filter(r => r.fileName?.endsWith('.html'))
             .map(r => r.route)
         if (!routes?.length) return
+        const tags = await getAllTags()
         const timestamp = new Date().toISOString()
         const sitemap = [
           `<?xml version="1.0" encoding="UTF-8"?>`,

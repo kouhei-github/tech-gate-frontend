@@ -1,5 +1,3 @@
-import axios from 'axios'
-import {LocationQuery} from 'vue-router'
 import {useJwtTokenStore} from '~/stores/jwt_token'
 
 type path = {

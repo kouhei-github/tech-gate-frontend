@@ -1,6 +1,5 @@
 import {useJwtTokenStore} from '~/stores/jwt_token'
-import {Post} from '~/models/article'
-import {CallbackResponse} from '~/models/googleLogin'
+import {type CallbackResponse} from '~/models/googleLogin'
 import {useUserProfileStore} from '~/stores/user_profile'
 
 export const normalLogin = async (body: {email: string, password: string}) => {

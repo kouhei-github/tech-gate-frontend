@@ -1,5 +1,5 @@
-import axios, {AxiosResponse} from 'axios'
-import {LocationQuery} from 'vue-router'
+import axios from 'axios'
+import {type LocationQuery} from 'vue-router'
 
 export const googleOauth = async (): Promise<{Message: string}> => {
   const config = useRuntimeConfig();

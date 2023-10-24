@@ -53,6 +53,9 @@ export default defineNuxtConfig({
   },
   hooks: {
     async 'nitro:config'(nitroConfig) {
+      if (nitroConfig.dev) {
+        return;
+      }
       // fetch the routes from our function above
       const slugs = await getDynamicTagRoots();
       // add the routes to the nitro config

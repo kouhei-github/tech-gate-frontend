@@ -1,5 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+
+const getDynamicTagRoots = async () => {
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  const res = await fetch(
+      `https://backend.tecklinker.com/api/v1/tag`,
+      { method: "GET", headers: headers}
+  )
+  const response: {
+    name: string
+    url: string
+  }[] = await res.json()
+  return response.map((tag) => `/categories/${tag.name}`)
+}
+
 export default defineNuxtConfig({
+  ssr: true,
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   modules: [
@@ -33,4 +51,12 @@ export default defineNuxtConfig({
       apiUrl: ""
     }
   },
+  hooks: {
+    async 'nitro:config'(nitroConfig) {
+      // fetch the routes from our function above
+      const slugs = await getDynamicTagRoots();
+      // add the routes to the nitro config
+      nitroConfig.prerender?.routes?.push(...slugs)
+    },
+  }
 })

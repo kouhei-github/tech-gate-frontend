@@ -2,6 +2,7 @@ import {useJwtTokenStore} from '~/stores/jwt_token'
 import {type CallbackResponse} from '~/models/googleLogin'
 import {useUserProfileStore} from '~/stores/user_profile'
 
+
 export const normalLogin = async (body: {email: string, password: string}) => {
   const config = useRuntimeConfig();
 

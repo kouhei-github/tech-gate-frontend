@@ -56,6 +56,9 @@ export default defineNuxtConfig({
       if (nitroConfig.dev) {
         return;
       }
+      if (nitroConfig.prerender?.routes === undefined) {
+        return;
+      }
       // fetch the routes from our function above
       const slugs = await getDynamicTagRoots();
       // add the routes to the nitro config

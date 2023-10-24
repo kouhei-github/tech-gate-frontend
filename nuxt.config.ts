@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import axios from 'axios'
 
 
 const getDynamicTagRoots = async () => {
@@ -56,13 +57,16 @@ export default defineNuxtConfig({
       if (nitroConfig.dev) {
         return;
       }
+      const response: {
+        name: string
+        url: string
+      }[] = await axios.get("https://backend.tecklinker.com/api/v1/tag");
       if (nitroConfig.prerender?.routes === undefined) {
         return;
       }
-      // fetch the routes from our function above
-      const slugs = await getDynamicTagRoots();
-      // add the routes to the nitro config
-      nitroConfig.prerender?.routes?.push(...slugs)
+      nitroConfig.prerender.routes = response.data.map((tag: {name: string,url: string}) => {
+        return `/categories/${tag.name}`;
+      });
     },
   }
 })
